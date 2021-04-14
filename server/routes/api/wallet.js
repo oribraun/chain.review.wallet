@@ -78,8 +78,8 @@ router.post('/listMasternodes', (req, res) => {
             const protocol = arr[1];
             const pubkey = arr[2]; // address
             const vin = arr[3]; // ip
-            const lastseen = arr[4];
-            const activeseconds = arr[5];
+            const lastseen = parseInt(arr[4]);
+            const activeseconds = parseInt(arr[5]);
             // console.log('status', status)
             // console.log('protocol', protocol)
             // console.log('pubkey', pubkey)
@@ -103,7 +103,7 @@ router.post('/listMasternodes', (req, res) => {
                 }
             )
         }
-        res.send({err:0, results: final_results});
+        res.send({err:0, results: JSON.stringify(final_results)});
     }).catch(function(err) {
         res.send({err:1, errMessage: err});
     })
@@ -123,27 +123,7 @@ router.post('/getMasternodeCount', (req, res) => {
             "onion": 0
         }
         // console.log('masternodes', masternodes);
-        res.send({err:0, results: final_results});
-    }).catch(function(err) {
-        res.send({err:1, errMessage: err});
-    })
-});
-router.get('/getMasternodeCount1', (req, res) => {
-    wallet_commands.getMasternodeCount(res.locals.wallet).then(function(results) {
-        results = results.replace(/\s+/g, '').trim().split("/");
-        // 'ds', 'enabled', 'all'
-        const final_results = {
-            "total": results[0],
-            "stable": results[0],
-            "obfcompat": 0,
-            "enabled": results[1],
-            "inqueue": 0,
-            "ipv4": 0,
-            "ipv6": 0,
-            "onion": 0
-        }
-        // console.log('masternodes', masternodes);
-        res.send({err:0, results: final_results});
+        res.send({err:0, results: JSON.stringify(final_results)});
     }).catch(function(err) {
         res.send({err:1, errMessage: err});
     })
