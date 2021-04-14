@@ -113,10 +113,10 @@ router.post('/getMasternodeCount', (req, res) => {
         results = results.replace(/\s+/g, '').trim().split("/");
         // 'ds', 'enabled', 'all'
         const final_results = {
-            "total": results[0],
-            "stable": results[0],
+            "total": parseInt(results[0]),
+            "stable": parseInt(results[0]),
             "obfcompat": 0,
-            "enabled": results[1],
+            "enabled": parseInt(results[1]),
             "inqueue": 0,
             "ipv4": 0,
             "ipv6": 0,
