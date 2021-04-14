@@ -163,12 +163,12 @@ router.post('/getDifficulty', (req, res) => {
     })
 });
 router.post('/getNetworkHashps', (req, res) => {
-    wallet_commands.getNetworkHashps(res.locals.wallet).then(function(results) {
+    // wallet_commands.getNetworkHashps(res.locals.wallet).then(function(results) {
         // console.log('masternodes', masternodes);
-        res.send({err:0, results: results});
-    }).catch(function(err) {
-        res.send({err:1, errMessage: err});
-    })
+        res.send({err:0, results: 0});
+    // }).catch(function(err) {
+    //     res.send({err:1, errMessage: err});
+    // })
 });
 router.post('/getMiningInfo', (req, res) => {
     wallet_commands.getMiningInfo(res.locals.wallet).then(function(results) {
