@@ -491,9 +491,9 @@ var getNewBlocks = function(wallet, callback) {
 
 var getAllMasternodes = function(wallet) {
     var wallet_cli = settings[wallet]['cli'];
-    var get_allmasternodes_command = settings[wallet]['commands']['getallmasternodes'].split(" ");
+    var get_allmasternodes_command = settings[wallet]['commands']['getallmasternodes'];
     var commands = [];
-    commands = commands.concat(get_allmasternodes_command)
+    commands.push(get_allmasternodes_command);
     var promise = new Promise(function(resolve, reject) {
         if(!settings[wallet]) {
             reject('this wallet do not exist in our system');
@@ -527,9 +527,9 @@ var getAllMasternodes = function(wallet) {
 
 var getMasternodeCount = function(wallet) {
     var wallet_cli = settings[wallet]['cli'];
-    var get_allmasternodes_command = settings[wallet]['commands']['getmasternodecount'].split(" ");
+    var get_allmasternodes_command = settings[wallet]['commands']['getmasternodecount'];
     var commands = [];
-    commands = commands.concat(get_allmasternodes_command)
+    commands.push(get_allmasternodes_command);
     var promise = new Promise(function(resolve, reject) {
         if(!settings[wallet]) {
             reject('this wallet do not exist in our system');
