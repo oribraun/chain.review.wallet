@@ -70,6 +70,7 @@ router.post('/listMasternodes', (req, res) => {
         //     "eec430188c75677b5e32f847946bbc921227ee66f360a00282b173978ac1b11f-0" : "   ENABLED 60022 PAhQnGzCNkDSmZ3QomtoAcKQeD817xPTCn a2dql2c35sa4h6hx.onion:18888 1618389137   738290 1618371111",
         //     "59d8b135f735c1474d7623fb432260495953692d4fb2d1f0da89a4adbf7af295-0" : "   ENABLED 60022 PTFHZndtE7J4bTZ6whtqcJ6hahNEP44wzW 192.93.173.212:18893 1618387905    43305 1618344600"
         // }
+        results = JSON.parse(results);
         const final_results = [];
         for (var i in results) {
             const arr = results[i].replace(/\s+/g, ' ').trim().split(" ")
@@ -108,6 +109,26 @@ router.post('/listMasternodes', (req, res) => {
     })
 });
 router.post('/getMasternodeCount', (req, res) => {
+    wallet_commands.getMasternodeCount(res.locals.wallet).then(function(results) {
+        results = results.replace(/\s+/g, '').trim().split("/");
+        // 'ds', 'enabled', 'all'
+        const final_results = {
+            "total": results[0],
+            "stable": results[0],
+            "obfcompat": 0,
+            "enabled": results[1],
+            "inqueue": 0,
+            "ipv4": 0,
+            "ipv6": 0,
+            "onion": 0
+        }
+        // console.log('masternodes', masternodes);
+        res.send({err:0, results: final_results});
+    }).catch(function(err) {
+        res.send({err:1, errMessage: err});
+    })
+});
+router.get('/getMasternodeCount1', (req, res) => {
     wallet_commands.getMasternodeCount(res.locals.wallet).then(function(results) {
         results = results.replace(/\s+/g, '').trim().split("/");
         // 'ds', 'enabled', 'all'
