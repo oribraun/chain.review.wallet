@@ -211,8 +211,8 @@ router.post('/getInfo', (req, res) => {
         wallet_commands.getInfo(res.locals.wallet).then(function (results) {
             // console.log('masternodes', masternodes);
             results = JSON.parse(results);
-            results.version = results.version.replace(/\./g, "").replace(/-.*/g, "").replace(/v/g, "")
-            results.version = parseInt(results.version.split("").join("0"))
+            results.version = results.version.replace(/-.*/g, "").replace(/v/g, "")
+            results.version = results.version
             data.info = results;
             resolve();
         }).catch(function (err) {
