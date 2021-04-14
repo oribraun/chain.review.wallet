@@ -1,0 +1,26 @@
+{
+    "coin": "digibyte",
+    "cli": "/usr/local/bin/digibyte-cli",
+    "daemon": "/usr/local/bin/digibyted",
+    "example_txid": "dd8a4a3b8ecdc14e4142ffb73a5b0c8801030f98dbd818f1b90ac3683b4f2c60",
+    "example_hash": "4da631f2ac1bed857bd968c67c913978274d8aabed64ab2bcebc1665d7f4d3a0",
+    "commands": {
+        "startwallet": "-daemon",
+        "stopwallet": "stop",
+        "reindexWallet": "-daemon -txindex=1 -reindex=1",
+        "rescanWallet": "-daemon -txindex=1 -rescan=1",
+        "getblock": "getblock",
+        "getblockhash": "getblockhash",
+        "getallmasternodes": "listmasternodes",
+        "getrawtransaction": "getrawtransaction",
+        "getblockcount": "getblockcount",
+        "getconnectioncount": "getconnectioncount",
+        "getinfo": "-getinfo",
+        "gettxoutsetinfo": "gettxoutsetinfo",
+        "getpeerinfo": "getpeerinfo",
+        "getmasternodecount": "getmasternodecount",
+        "getdifficulty": "getdifficulty",
+        "getnetworkhashps": "getnetworkhashps",
+        "getmininginfo": "getmininginfo"
+    }
+}

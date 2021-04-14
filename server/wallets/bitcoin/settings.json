@@ -1,0 +1,26 @@
+{
+    "coin": "bitcoin",
+    "cli": "/usr/local/bin/bitcoin-cli",
+    "daemon": "/usr/local/bin/bitcoind",
+    "example_txid": "0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098",
+    "example_hash": "00000000839a8e6886ab5951d76f411475428afc90947ee320161bbf18eb6048",
+    "commands": {
+        "startwallet": "-daemon",
+        "stopwallet": "stop",
+        "reindexWallet": "-daemon -txindex=1 -reindex=1",
+        "rescanWallet": "-daemon -txindex=1 -rescan=1",
+        "getblock": "getblock",
+        "getblockhash": "getblockhash",
+        "getallmasternodes": "listmasternodes",
+        "getrawtransaction": "getrawtransaction",
+        "getblockcount": "getblockcount",
+        "getconnectioncount": "getconnectioncount",
+        "getinfo": "-getinfo",
+        "gettxoutsetinfo": "gettxoutsetinfo",
+        "getpeerinfo": "getpeerinfo",
+        "getmasternodecount": "getmasternodecount",
+        "getdifficulty": "getdifficulty",
+        "getnetworkhashps": "getnetworkhashps",
+        "getmininginfo": "getmininginfo"
+    }
+}
